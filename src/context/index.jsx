@@ -35,7 +35,6 @@ export default function GlobalState({ children }) {
       if (!isEdit) {
         const updatedTask = [...task, { ...currentTaskData, taskId: id }];
         setTask(updatedTask);
-        console.log("updatedTask");
         localStorage.setItem("task", JSON.stringify(updatedTask));
         setId((prev) => prev + 1);
         localStorage.setItem("id", JSON.stringify(id));

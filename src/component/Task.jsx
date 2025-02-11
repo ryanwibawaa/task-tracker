@@ -16,7 +16,6 @@ export default function Task({ details }) {
   // Function handling for edit task
   function handleEdit(event) {
     try {
-      console.log("edit");
       setTaskData(details);
       setIsEdit(true);
       setShowModal(true);
@@ -25,7 +24,6 @@ export default function Task({ details }) {
     }
     event.preventDefault();
   }
-  console.log(taskData);
 
   // Function handling for delete task
   function handleDelete(deletedId) {
