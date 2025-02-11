@@ -16,7 +16,6 @@ export default function GlobalState({ children }) {
 
   // Initial retrieval
   useEffect(() => {
-    localStorage.clear();
     const storedTask = JSON.parse(localStorage.getItem("task")) || [];
     setTask(storedTask);
     const storedId = JSON.parse(localStorage.getItem("id")) + 1 || 0;
