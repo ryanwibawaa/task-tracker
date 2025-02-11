@@ -16,6 +16,7 @@ export default function GlobalState({ children }) {
 
   // Initial retrieval
   useEffect(() => {
+    localStorage.clear();
     const storedTask = JSON.parse(localStorage.getItem("task")) || [];
     setTask(storedTask);
     const storedId = JSON.parse(localStorage.getItem("id")) + 1 || 0;
@@ -41,12 +42,16 @@ export default function GlobalState({ children }) {
       } else {
         const updatedTask = task.map((eachTask) => {
           if (eachTask.taskId === currentTaskData.taskId) {
-            eachTask.taskName = currentTaskData.taskName;
-            eachTask.progress = currentTaskData.progress;
-            setTask(updatedTask);
-            localStorage.setItem("task", JSON.stringify(updatedTask));
+            return {
+              ...eachTask,
+              taskName: currentTaskData.taskName,
+              progress: currentTaskData.progress,
+            };
           }
+          return eachTask;
         });
+        setTask(updatedTask);
+        localStorage.setItem("task", JSON.stringify(updatedTask));
       }
       setTaskData({
         taskId: id,

@@ -21,7 +21,7 @@ export default function List({ statusProgress }) {
 
       <div className="flex flex-col gap-3">
         {filteredTask.map((each) => (
-          <Task details={each} />
+          <Task key={each.taskId} details={each} />
         ))}
       </div>
     </div>
