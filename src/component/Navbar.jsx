@@ -15,7 +15,7 @@ export default function Navbar() {
 
   return (
     <nav className="flex justify-between gap-10 p-7 border-b-4  border-blue-400 items-center">
-      <h1 className="flex-1 text-center text-2xl ml-44 font-bold">
+      <h1 className="flex-1 text-center text-2xl sm:ml-44 font-bold">
         Task Tracker App
       </h1>
 
